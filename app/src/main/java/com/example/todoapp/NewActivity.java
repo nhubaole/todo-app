@@ -62,5 +62,18 @@ public class NewActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        try {
+            Todo editTodo = (Todo) getIntent().getExtras().get("todo");
+            int position = getIntent().getIntExtra("position", -1);
+            pos = position;
+            titleEdt.setText(editTodo.getTitle());
+            descEdt.setText(editTodo.getDescription());
+            doneCbox.setChecked(editTodo.isDone());
+            dateEdt.setText(editTodo.getDate());
+        }
+        catch (Exception e){
+
+        }
     }
 }
